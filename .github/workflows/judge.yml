@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Judge
         id: judge
-        run: diff -q template/base.txt work/answer.txt > /dev/null ; echo "has_diff=$?" >> $GITHUB_OUTPUT
+        run: result=$(diff -q template/base.txt work/answer.txt > /dev/null; echo $?) ; echo "has_diff=$result" >> $GITHUB_OUTPUT
       - run: |
           if [[ ${{ steps.judge.outputs.has_diff }} == 1 ]]; then \
             diff template/base.txt work/answer.txt >> $GITHUB_STEP_SUMMARY
