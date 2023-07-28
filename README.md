@@ -24,3 +24,5 @@ $ gh pr create --title "step1の回答"
 ```
 
 で PullRequest を作成することも出来ます。
+
+GitHub Actionsのテストが通ったらmergeしましょう。
