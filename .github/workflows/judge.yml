@@ -28,7 +28,7 @@ jobs:
         id: judge_file
         run: result=$(diff -q template/step2b.txt work/answer.txt > /dev/null; echo $?) ; echo "has_diff=$result" >> $GITHUB_OUTPUT
       - run: |
-          if [[ ${{ steps.judge.outputs.has_diff }} == 1 ]]; then \
+          if [[ ${{ steps.judge_file.outputs.has_diff }} == 1 ]]; then \
             diff -u template/step2b.txt work/answer.txt >> $GITHUB_STEP_SUMMARY || true
           fi
       - name: Judge merge
