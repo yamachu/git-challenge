@@ -24,6 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Judge file
         id: judge_file
         run: result=$(diff -q template/step2b.txt work/answer.txt > /dev/null; echo $?) ; echo "has_diff=$result" >> $GITHUB_OUTPUT
