@@ -11,7 +11,7 @@ $ git switch -c step1
 以下のコマンドでファイルを作成してください。
 
 ```sh
-$ make init
+$ make init/step1
 ```
 
 この状態で、`work/answer.txt` を `git add` し、`git commit` でコミットしましょう。

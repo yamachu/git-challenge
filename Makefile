@@ -1,4 +1,4 @@
-.PHONY: init
+.PHONY: init/step1
 
-init:
+init/step1:
 	cp template/base.txt work/answer.txt
