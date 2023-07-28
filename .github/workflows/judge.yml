@@ -15,6 +15,6 @@ jobs:
         run: result=$(diff -q template/base.txt work/answer.txt > /dev/null; echo $?) ; echo "has_diff=$result" >> $GITHUB_OUTPUT
       - run: |
           if [[ ${{ steps.judge.outputs.has_diff }} == 1 ]]; then \
-            diff template/base.txt work/answer.txt >> $GITHUB_STEP_SUMMARY || true
+            diff -u template/base.txt work/answer.txt >> $GITHUB_STEP_SUMMARY || true
           fi
       - run: exit ${{ steps.judge.outputs.has_diff }}
