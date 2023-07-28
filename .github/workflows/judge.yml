@@ -33,7 +33,7 @@ jobs:
           fi
       - name: Judge merge
         id: judge_merge
-        run: git fetch origin main; result=$(git merge --no-commit --no-ff main > /dev/null; echo $?) ; echo "has_conflict=$result" >> $GITHUB_OUTPUT
+        run: git fetch origin main; result=$(git merge --no-commit --no-ff origin/main > /dev/null; echo $?) ; echo "has_conflict=$result" >> $GITHUB_OUTPUT
       - run: |
           if [[ ${{ steps.judge_merge.outputs.has_conflict }} == 1 ]]; then \
             echo ファイルのコンフリクトを解消しましょう >> $GITHUB_STEP_SUMMARY || true
